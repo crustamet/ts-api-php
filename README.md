@@ -14,7 +14,7 @@ This wrapper allows you to easily interact with the [TRTL Services](https://trtl
 # Installation
 
 ```bash
-composer require ts-api-php
+composer require trtlservices/ts-api-php
 ```
 
 
