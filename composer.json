@@ -1,5 +1,5 @@
 {
-  "name": "ts/ts-api-php",
+  "name": "trtlservices/ts-api-php",
   "version": "0.0.1",
   "description": "PHP wrapper for TRTL Servicea RESTFUL API.",
   "keywords": [
