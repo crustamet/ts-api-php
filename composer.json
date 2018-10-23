@@ -1,7 +1,7 @@
 {
   "name": "trtlservices/ts-api-php",
   "version": "0.0.1",
-  "description": "PHP wrapper for TRTL Servicea RESTFUL API.",
+  "description": "PHP wrapper for TRTL Services RESTFUL API.",
   "keywords": [
     "TurtleCoin",
     "TRTL Services",
