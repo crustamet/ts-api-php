@@ -78,7 +78,7 @@ $TS->deleteAdddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK9
 
 
 ### getAddresses()
-View all addresses belonging to the specified token.
+View all addresses.
 
 ```php
 $TS->getAddresses()
@@ -110,7 +110,7 @@ $TS->integrateAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9t
 
 
 ### getIntegratedAddresses(address)
-Create an integrated address with an address and payment ID.
+Get all integrated addresses by address.
 
 ```php
 $TS->getIntegratedAddresses("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
@@ -162,4 +162,12 @@ Get the current status of the TRTL Services infrastructure.
 
 ```php
 $TS->getStatus()
+```
+
+# License
+
+```
+Copyright (C) 2018 Rashed Mohammed, The TurtleCoin Developers
+
+Please see the included LICENSE file for more information.
 ```
