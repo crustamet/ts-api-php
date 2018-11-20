@@ -10,7 +10,7 @@ use stdClass;
 class Client
 {
     protected $client = null;
-    protected $host = 'https://api.trtl.services';
+    protected $host = 'https://api.trtl.services/v1';
     protected $token = null;
     protected $timeout = 2000;
 
