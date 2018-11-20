@@ -7,7 +7,7 @@ use TRTLServices\Http\Client;
 
 class TRTLServices extends Client
 {
-
+    // Create Address
     public function createAddress():Response
     {
         $params = [];
@@ -15,24 +15,57 @@ class TRTLServices extends Client
         return $this->_post('address', $params);
     }
 
+
+    // Get Address
+    public function getAddress(string $address):Response
+    {
+        return $this->_get('address/' . $address);
+    }
+
+
+    // Delete Address
     public function deleteAddress(string $address):Response
     {
         return $this->_delete('address/' . $address);
     }
 
-    public function viewAddress(string $address):Response
+
+    // Get Addresses
+    public function getAddresses():Response
     {
-        return $this->_get('address/view/' . $address);
+        return $this->_get('address/all');
     }
 
-    public function viewAddresses():Response
-    {
-        return $this->_get('address/view/all');
-    }
 
+    // Scan Address
     public function scanAddress(string $address, int $blockIndex):Response
     {
         return $this->_get('address/scan/' . $address  . '/' .  $blockIndex);
+    }
+
+
+    // Get Address Keys
+    public function getAddressKeys(string $address):Response
+    {
+        return $this->_get('address/keys/' . $address);
+    }
+
+
+    // Integrate Address
+    public function integrateAddress(string $address):Response
+    {
+        $params = [
+            'address' => $address
+        ];
+
+        return $this->_post('address/integrate', $params);
+    }
+
+
+    // Get Integrated Addresses
+    public function getIntegratedAddress(string $address):Response
+    {
+        return $this->_get('address/integrate/' . $address);
     }
 
     public function getFee(float $amount):Response
@@ -40,9 +73,10 @@ class TRTLServices extends Client
         return $this->_get('transfer/fee/' . $amount);
     }
 
+    // Create Transfer
     public function createTransfer(
-        string $to,
         string $from,
+        string $to,
         float $amount,
         float $fee,
         string $paymentId = null,
@@ -61,10 +95,18 @@ class TRTLServices extends Client
         return $this->_post('transfer', $params);
     }
 
-    public function viewTransfer(string $transactionHash):Response {
-        return $this->_get('transfer/view/' . $transactionHash);
+    // Get Transfer
+    public function getTransfer(string $transactionHash):Response {
+        return $this->_get('transfer/' . $transactionHash);
     }
 
+    //Get Wallet
+    public function getWallet():Response
+    {
+        return $this->_get('wallet');
+    }
+
+    //Get Status
     public function getStatus():Response
     {
         return $this->_get('status');

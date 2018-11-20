@@ -1,6 +1,6 @@
 # TRTL Service PHP API Interface
 
-This wrapper allows you to easily interact with the [TRTL Services](https://trtl.services) API to quickly develop applications that interact with the [TurtleCoin](https://turtlecoin.lol) Network.
+This wrapper allows you to easily interact with the [TRTL Services](https://trtl.services) 0.9.0 API to quickly develop applications that interact with the [TurtleCoin](https://turtlecoin.lol) Network.
 
 
 # Table of Contents
@@ -49,7 +49,7 @@ $response->toArray();
 
 # Documentation
 
-API documentation is available at https://trtl.services/documentation
+API documentation is available at https://trtl.services/docs
 
 
 ## Methods
@@ -62,6 +62,13 @@ $TS->createAddress()
 ```
 
 
+### getAddress(address)
+Get address details by address
+```php
+$TS->getAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
+```
+
+
 ### deleteAddress(address)
 Delete a selected TRTL addresses
 
@@ -70,31 +77,48 @@ $TS->deleteAdddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK9
 ```
 
 
-### ViewAddress()
-Get address details by address
-```php
-$TS->viewAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
-```
-
-
-### viewAddresses()
+### getAddresses()
 View all addresses belonging to the specified token.
 
 ```php
-$TS->viewAddresses()
+$TS->getAddresses()
 ```
 
 
-### scanAddress()
-Scan for transactions in the next 100 blocks specified by blockIndex and address.
+### scanAddress(address, blockIndex)
+Scan an address for transactions between a 100 block range starting from the specified blockIndex.
 
 ```php
 $TS->scanAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A", 899093)
 ```
 
 
-### getFee()
-Calculate the TRTL Services fee for a specified TRTL amount.
+### getAddressKeys(address)
+Get the public and secret spend key of an address.
+
+```php
+$TS->getAddressKeys("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
+```
+
+
+### integrateAddress(address, paymentId)
+Create an integrated address with an address and payment ID.
+
+```php
+$TS->integrateAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A", "7d89a2d16365a1198c46db5bbe1af03d2b503a06404f39496d1d94a0a46f8804")
+```
+
+
+### getIntegratedAddress(address)
+Create an integrated address with an address and payment ID.
+
+```php
+$TS->getIntegratedAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
+```
+
+
+### getFee(amount)
+Calculate the TRTL Services fee for an amount specified in TRTL with two decimal points.
 
 ```php
 $TS->getFee(1092.19)
@@ -102,17 +126,26 @@ $TS->getFee(1092.19)
 
 
 ### createTransfer()
-Send a TRTL transaction with a specified account.
+Send a TRTL transaction with an address with the amount specified two decimal points.
 
 ```php
-$TS->createTransfer("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A", "TRTLuzAzNs1E1RBFhteX56A5353vyHuSJ5AYYQfoN97PNbcMDvwQo4pUWHs7SYpuD9ThvA7AD3r742kwTmWh5o9WFaB9JXH8evP", 1000, 1)
+$TS->createTransfer("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A", "TRTLuzAzNs1E1RBFhteX56A5353vyHuSJ5AYYQfoN97PNbcMDvwQo4pUWHs7SYpuD9ThvA7AD3r742kwTmWh5o9WFaB9JXH8evP", 1000.01, 1.2, "7d89a2d16365a1198c46db5bbe1af03d2b503a06404f39496d1d94a0a46f8804", "3938f915a11582f62d93f82f710df9203a029f929fd2f915f2701d947f920f99")
 ```
+#### You can leave the last two fields (paymentId and extra) blank.
 
-### viewTransfer()
-Lists transaction details with specified hash.
+
+### getransfer()
+Get a transaction details specified by transaction hash.
 
 ```php
 $TS->viewTransfer("EohMUzR1DELyeQM9RVVwpmn5Y1DP0lh1b1ZpLQrfXQsgtvGHnDdJSG31nX2yESYZ")
+```
+
+### getWallet()
+Get wallet container info and health check.
+
+```php
+$TS->getWallet()
 ```
 
 
