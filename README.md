@@ -109,11 +109,11 @@ $TS->integrateAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9t
 ```
 
 
-### getIntegratedAddress(address)
+### getIntegratedAddresses(address)
 Create an integrated address with an address and payment ID.
 
 ```php
-$TS->getIntegratedAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
+$TS->getIntegratedAddresses("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
 ```
 
 

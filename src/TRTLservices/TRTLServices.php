@@ -63,7 +63,7 @@ class TRTLServices extends Client
 
 
     // Get Integrated Addresses
-    public function getIntegratedAddress(string $address):Response
+    public function getIntegratedAddresses(string $address):Response
     {
         return $this->_get('address/integrate/' . $address);
     }
