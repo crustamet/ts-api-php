@@ -1,11 +1,11 @@
 <?php
 
-namespace TRTLServices;
+namespace BLOCGateway;
 
-use TRTLServices\Http\Response;
-use TRTLServices\Http\Client;
+use BLOCGateway\Http\Response;
+use BLOCGateway\Http\Client;
 
-class TRTLServices extends Client
+class BLOCGateway extends Client
 {
     // Create Address
     public function createAddress():Response

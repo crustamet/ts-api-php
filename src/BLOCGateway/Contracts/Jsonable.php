@@ -1,6 +1,6 @@
 <?php
 
-namespace TRTLServices\Contracts;
+namespace BLOCGateway\Contracts;
 
 interface Jsonable
 {

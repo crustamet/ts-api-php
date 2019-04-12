@@ -1,10 +1,10 @@
 <?php
 
-namespace TRTLServices\Http;
+namespace BLOCGateway\Http;
 
 use Psr\Http\Message\ResponseInterface;
-use TRTLServices\Contracts\Arrayable;
-use TRTLServices\Contracts\Jsonable;
+use BLOCGateway\Contracts\Arrayable;
+use BLOCGateway\Contracts\Jsonable;
 
 class Response implements Jsonable, Arrayable
 {

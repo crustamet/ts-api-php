@@ -1,6 +1,6 @@
 <?php
 
-namespace TRTLServices\Http;
+namespace BLOCGateway\Http;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
@@ -10,7 +10,7 @@ use stdClass;
 class Client
 {
     protected $client = null;
-    protected $host = 'https://api.trtl.services/v1';
+    protected $host = 'https://bloc-gateway.com/api';
     protected $token = null;
     protected $timeout = 2000;
 
@@ -19,8 +19,8 @@ class Client
         $this->configure($config);
 
         $headers = [
-            'Authorization' => 'Bearer ' . $config['token'],        
-            'Accept'        => 'application/json',
+            'BLOC-WEB-API-KEY' 	=> $config['token'],        
+            'Accept'        	=> 'application/json',
         ];
 
         $this->client = new GuzzleClient([
@@ -53,7 +53,7 @@ class Client
     {
         $response = $this->client->get($this->host . '/' . $method, [
             'headers'   => [
-                'Authorization' => 'Bearer ' .  $this->config()['token'],        
+                'BLOC-WEB-API-KEY' => $this->config()['token'],        
                 'Accept'        => 'application/json',
             ],
             'timeout'   => $this->config()['timeout']
@@ -68,8 +68,8 @@ class Client
         
         $response = $this->client->post($this->host . '/' . $method, [
             'headers'   => [
-                'Authorization' => 'Bearer ' .  $this->config()['token'],        
-                'Accept'        => 'application/json',
+                'BLOC-WEB-API-KEY' => $this->config()['token'],        
+                'Accept'       	   => 'application/json',
             ],
             'json'      => $params,
             'timeout'   => $this->config()['timeout'],
@@ -82,8 +82,8 @@ class Client
     {
         $response = $this->client->delete($this->host . '/' . $method, [
             'headers'   => [
-                'Authorization' => 'Bearer ' .  $this->config()['token'],        
-                'Accept'        => 'application/json',
+                'BLOC-WEB-API-KEY' => $this->config()['token'],        
+                'Accept'       	   => 'application/json',
             ],
             'timeout'   => $this->config()['timeout'],
         ]);

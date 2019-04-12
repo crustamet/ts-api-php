@@ -1,37 +1,37 @@
 {
-  "name": "trtlservices/ts-api-php",
+  "name": "furiousteam/ts-api-php",
   "version": "0.9.0",
-  "description": "PHP wrapper for TRTL Services RESTFUL API.",
+  "description": "PHP wrapper for BLOC.MONEY RESTFUL API.",
   "keywords": [
-    "TurtleCoin",
-    "TRTL Services",
-    "TRTL Apps",
-    "TurtleCoin Apps",
-    "TRTL API Wrapper"
+    "Bloc.Money",
+    "BLOCGatway",
+    "BLOC Apps",
+    "BLOC.Money Apps",
+    "BLOC API Wrapper"
   ],
-  "homepage": "https://trtl.services",
+  "homepage": "https://bloc.money",
   "license": "AGPL-3.0",
   "authors": [
     {
-      "name": "fexra",
-      "email": "fexra@protonmail.com"
+      "name": "crustamet",
+      "email": "crustamet@gmail.com"
     }
   ],
   "require": {
-    "php": ">=7.0",
+    "php": ">=7.1.3",
     "guzzlehttp/guzzle": "^6.2",
     "ext-json": "*"
   },
   "readme": "README.md",
   "autoload": {
     "psr-4": {
-      "TRTLServices\\": "src/TRTLservices"
+      "BLOCGateway\\": "src/BLOCGateway"
     }
   },
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/trtl-services/ts-api-php"
+      "url": "https://github.com/furiousteam/ts-api-php"
   }
   ],
   "minimum-stability": "stable"
