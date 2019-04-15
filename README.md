@@ -1,6 +1,6 @@
-# TRTL Service PHP API Interface
+# BLOC Service PHP API Interface
 
-This wrapper allows you to easily interact with the [TRTL Services](https://trtl.services) 0.9.0 API to quickly develop applications that interact with the [TurtleCoin](https://turtlecoin.lol) Network.
+This wrapper allows you to easily interact with the [BLOC Gateway](https://bloc-gateway.com) 0.9.0 API to quickly develop applications that interact with the [BLOC.MONEY](https://bloc.money) Network.
 
 
 # Table of Contents
@@ -21,14 +21,14 @@ composer require trtlservices/ts-api-php
 # Intialization
 
 ```php
-use TRTLservices\TRTLServices;
+use BLOCGateway\BLOCGateway;
 
 $config = [
     'token' => 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsImFwcElkIjo0LCJ1c2VySWQiOjYsInBlcm1pc3Npb25zIjpbImFkZHJlc3M6bmV3Il0sImlhdCI6MTUzNjU4NTM2NywiZXhwIjoxNTM5MTc3MzY3LCJhdWQiOiJ0dXJ0bGV3YWxsZXQuaW8iLCJpc3MiOiJUUlRMIFNlcnZpY2VzIiwianRpIjoiMzMifQ.AEHXmvTo8RfNuZ15Y3IGPRhZPaJxFSmOZvVv2YGN9L4We7bXslIPxhMv_n_5cNW8sIgE2Fr-46OTb5H5AFgpjA',
     'timeout' => 2000
 ];
 
-$TS = new TRTLServices($config);
+$BLOCGATEWAY = new BLOCGateway($config);
 
 ```
 
@@ -49,31 +49,31 @@ $response->toArray();
 
 # Documentation
 
-API documentation is available at https://trtl.services/docs
+API documentation is available at https://bloc-developer.com/api_bloc-gateway
 
 
 ## Methods
 
 ### createAddress()
-Create a new TRTL addresses
+Create a new BLOC addresses
 
 ```php
-$TS->createAddress()
+$BLOCGATEWAY->createAddress()
 ```
 
 
 ### getAddress(address)
 Get address details by address
 ```php
-$TS->getAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
+$BLOCGATEWAY->getAddress("aBLocuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
 ```
 
 
 ### deleteAddress(address)
-Delete a selected TRTL addresses
+Delete a selected BLOC addresses
 
 ```php
-$TS->deleteAdddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
+$BLOCGATEWAY->deleteAdddress("aBLocuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
 ```
 
 
@@ -81,7 +81,7 @@ $TS->deleteAdddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK9
 View all addresses.
 
 ```php
-$TS->getAddresses()
+$BLOCGATEWAY->getAddresses()
 ```
 
 
@@ -89,7 +89,7 @@ $TS->getAddresses()
 Scan an address for transactions between a 100 block range starting from the specified blockIndex.
 
 ```php
-$TS->scanAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A", 899093)
+$BLOCGATEWAY->scanAddress("aBLocuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A", 899093)
 ```
 
 
@@ -97,7 +97,7 @@ $TS->scanAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9
 Get the public and secret spend key of an address.
 
 ```php
-$TS->getAddressKeys("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
+$BLOCGATEWAY->getAddressKeys("aBLocuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
 ```
 
 
@@ -105,7 +105,7 @@ $TS->getAddressKeys("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK9
 Create an integrated address with an address and payment ID.
 
 ```php
-$TS->integrateAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A", "7d89a2d16365a1198c46db5bbe1af03d2b503a06404f39496d1d94a0a46f8804")
+$BLOCGATEWAY->integrateAddress("aBLocuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A", "7d89a2d16365a1198c46db5bbe1af03d2b503a06404f39496d1d94a0a46f8804")
 ```
 
 
@@ -113,25 +113,25 @@ $TS->integrateAddress("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9t
 Get all integrated addresses by address.
 
 ```php
-$TS->getIntegratedAddresses("TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
+$BLOCGATEWAY->getIntegratedAddresses("aBLocuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A")
 ```
 
 
 ### getFee(amount)
-Calculate the TRTL Services fee for an amount specified in TRTL with two decimal points.
+Calculate the BLOC Services fee for an amount specified in BLOC with two decimal points.
 
 ```php
-$TS->getFee(1092.19)
+$BLOCGATEWAY->getFee(1092.19)
 ```
 
 
 ### createTransfer(sender, receiver, amount, fee, paymentId, extra)
-Send a TRTL transaction with an address with the amount specified two decimal points.
+Send a BLOC transaction with an address with the amount specified two decimal points.
 
 ```php
-$TS->createTransfer(
-  "TRTLuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A",
-  "TRTLuzAzNs1E1RBFhteX56A5353vyHuSJ5AYYQfoN97PNbcMDvwQo4pUWHs7SYpuD9ThvA7AD3r742kwTmWh5o9WFaB9JXH8evP",
+$BLOCGATEWAY->createTransfer(
+  "aBLocuxH78akDMCsXycnU5HjJE6zPCgM4KRNNQSboqh1yiTnvxuhNVUL9tK92j9kurSKdXVHFmjSRkaNBxM6Nb3G8eQGL7aj113A",
+  "aBLocGzAzNs1E1RBFhteX56A5353vyHuSJ5AYYQfoN97PNbcMDvwQo4pUWHs7SYpuD9ThvA7AD3r742kwTmWh5o9WFaB9JXH8evP",
   1000.01,
   1.2,
   "7d89a2d16365a1198c46db5bbe1af03d2b503a06404f39496d1d94a0a46f8804",
@@ -145,7 +145,7 @@ $TS->createTransfer(
 Get a transaction details specified by transaction hash.
 
 ```php
-$TS->getTransfer("EohMUzR1DELyeQM9RVVwpmn5Y1DP0lh1b1ZpLQrfXQsgtvGHnDdJSG31nX2yESYZ")
+$BLOCGATEWAY->getTransfer("EohMUzR1DELyeQM9RVVwpmn5Y1DP0lh1b1ZpLQrfXQsgtvGHnDdJSG31nX2yESYZ")
 ```
 
 
@@ -153,15 +153,15 @@ $TS->getTransfer("EohMUzR1DELyeQM9RVVwpmn5Y1DP0lh1b1ZpLQrfXQsgtvGHnDdJSG31nX2yES
 Get wallet container info and health check.
 
 ```php
-$TS->getWallet()
+$BLOCGATEWAY->getWallet()
 ```
 
 
 ### getStatus()
-Get the current status of the TRTL Services infrastructure.
+Get the current status of the BLOC Services infrastructure.
 
 ```php
-$TS->getStatus()
+$BLOCGATEWAY->getStatus()
 ```
 
 # License
